@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Registration System</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#eef2f5;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.form-box{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.logo{
+    width:60px;
+    display:block;
+    margin:auto;
+}
+
+h2{
+    text-align:center;
+    margin:10px 0 20px;
+}
+
+.field{
+    margin-bottom:12px;
+}
+
+label{
+    display:block;
+    font-size:14px;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:8px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+textarea{ resize:none; }
+
+small{
+    color:red;
+    font-size:12px;
+    visibility:hidden;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#4CAF50;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{ background:#45a049; }
+
+table{
+    width:100%;
+    margin-top:25px;
+    border-collapse:collapse;
+    display:none;
+    background:#fff;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:center;
+}
+
+th{
+    background:#4CAF50;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="form-box">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" class="logo">
+
+<h2>Registration Form</h2>
+
+<form id="regForm">
+
+<div class="field">
+<label>Full Name</label>
+<input type="text" id="name">
+<small>Error</small>
+</div>
+
+<div class="field">
+<label>Email</label>
+<input type="email" id="email">
+<small>Error</small>
+</div>
+
+<div class="field">
+<label>Phone</label>
+<input type="text" id="phone">
+<small>Error</small>
+</div>
+
+<div class="field">
+<label>Gender</label>
+<select id="gender">
+<option value="">Select</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+<small>Error</small>
+</div>
+
+<div class="field">
+<label>Date of Birth</label>
+<input type="date" id="dob">
+<small>Error</small>
+</div>
+
+<div class="field">
+<label>Course / Role</label>
+<input type="text" id="course">
+<small>Error</small>
+</div>
+
+<div class="field">
+<label>Address</label>
+<textarea id="address" rows="3"></textarea>
+<small>Error</small>
+</div>
+
+<div class="field">
+<label>Password</label>
+<input type="password" id="password">
+<small>Error</small>
+</div>
+
+<button type="submit">Register</button>
+
+</form>
+</div>
+
+<table id="dataTable">
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Gender</th>
+<th>DOB</th>
+<th>Course</th>
+<th>Address</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+</div>
+
+<script>
+// Form & Inputs
+const form = document.getElementById("regForm");
+const table = document.getElementById("dataTable");
+const tbody = table.querySelector("tbody");
+
+const nameInput = document.getElementById("name");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const gender = document.getElementById("gender");
+const dob = document.getElementById("dob");
+const course = document.getElementById("course");
+const address = document.getElementById("address");
+const password = document.getElementById("password");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    if(validate()){
+        alert("✅ Registration Successful!");
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${nameInput.value}</td>
+            <td>${email.value}</td>
+            <td>${phone.value}</td>
+            <td>${gender.value}</td>
+            <td>${dob.value}</td>
+            <td>${course.value}</td>
+            <td>${address.value}</td>
+        `;
+
+        tbody.appendChild(row);
+        table.style.display = "table";
+        form.reset();
+    }
+});
+
+function showError(input,msg){
+    const small = input.parentElement.querySelector("small");
+    small.innerText = msg;
+    small.style.visibility = "visible";
+}
+
+function showSuccess(input){
+    const small = input.parentElement.querySelector("small");
+    small.style.visibility = "hidden";
+}
+
+function validate(){
+    let valid = true;
+
+    if(nameInput.value===""){ showError(nameInput,"Required"); valid=false; } else showSuccess(nameInput);
+    if(!email.value.includes("@")){ showError(email,"Invalid"); valid=false; } else showSuccess(email);
+    if(phone.value.length!=10 || isNaN(phone.value)){ showError(phone,"Invalid"); valid=false; } else showSuccess(phone);
+    if(gender.value===""){ showError(gender,"Select"); valid=false; } else showSuccess(gender);
+    if(dob.value===""){ showError(dob,"Required"); valid=false; } else showSuccess(dob);
+    if(course.value===""){ showError(course,"Required"); valid=false; } else showSuccess(course);
+    if(address.value===""){ showError(address,"Required"); valid=false; } else showSuccess(address);
+    if(password.value.length<6){ showError(password,"Min 6 chars"); valid=false; } else showSuccess(password);
+
+    return valid;
+}
+</script>
+
+</body>
+</html>
