@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker Pro</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            transition: background-color 0.5s;
+        }
+
+        #main-container {
+            width: 200px; 
+            margin: auto; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            min-width: 350px;
+        }
+
+       
+        #box {
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+        
+        .item {
+            color: red;
+            list-style: none;
+            padding: 5px 0;
+        }
+
+        
+        button:hover {
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+
+        
+        h2, legend {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        
+        .hidden-note {
+            display: none;
+        }
+
+        
+        input, fieldset { margin-bottom: 10px; width: 100%; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+<div id="main-container">
+    <div id="box">
+        <h2>Expense Tracker</h2>
+        
+        <fieldset>
+            <legend>Personal Info</legend>
+            <input type="email" id="userEmail" name="email" placeholder="User Email">
+        </fieldset>
+
+        <form id="expenseForm">
+            <input type="text" id="name" name="username" placeholder="Expense Name (e.g. Lunch)" required>
+            
+            <label>Importance (1-10):</label>
+            <input type="number" id="rating" min="1" max="10" value="1">
+
+            <div>
+                <input type="radio" name="gender" checked> Business
+                <input type="radio" name="gender"> Personal
+            </div>
+
+            <div>
+                <input type="checkbox" id="terms" required> I Agree to log this
+            </div>
+
+            <button type="button" onclick="showMsg()">Show Alert</button>
+            
+            <button type="submit" id="btn">Add Expense</button>
+        </form>
+
+        <hr>
+
+        <p>Last Entry: <span id="demo">None</span></p>
+
+        <p>Budget Used (50%):</p>
+        <progress value="50" max="100"></progress>
+
+        <p><a href="https://example.com" target="_blank">View History</a></p>
+        
+        <p class="hidden-note">This text is hidden using CSS display:none.</p>
+    </div>
+</div>
+
+<script>
+    function showMsg() {
+        alert("Hello");
+    }
+
+    console.log("Tracker Initialized: " + new Date());
+
+    const form = document.getElementById('expenseForm');
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var expenseName = document.getElementById("name").value;
+        var importance = parseInt(document.getElementById("rating").value);
+
+        document.getElementById("demo").innerHTML = expenseName;
+
+        document.getElementById("btn").innerHTML = "Clicked";
+
+        document.body.style.backgroundColor = "yellow";
+
+        if(importance > 10) {
+            console.log("Greater");
+        }
+
+        var a = importance;
+        var b = 5;
+        var sum = a + b;
+        console.log("Calculated Score (Rating + 5): " + sum);
+        
+        alert("Expense Added: " + expenseName);
+    });
+</script>
+
+</body>
+</html>
