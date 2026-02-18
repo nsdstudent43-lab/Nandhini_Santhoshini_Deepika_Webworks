@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise - Effortless Finance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #064e3b 0%, #10b981 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="absolute top-0 w-full flex items-center justify-between px-10 py-6 text-white z-10">
+        <div class="flex items-center space-x-2">
+            <div class="bg-emerald-400 p-2 rounded-lg">🦉</div>
+            <span class="text-2xl font-bold tracking-tight">SpendWise</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8 font-medium">
+            <a href="#" class="hover:text-emerald-200 transition">Features</a>
+            <a href="#" class="hover:text-emerald-200 transition">Testimonials</a>
+            <a href="#" class="hover:text-emerald-200 transition">Login</a>
+            <a href="#" class="border border-white px-5 py-2 rounded-full hover:bg-white hover:text-emerald-800 transition">Sign Up</a>
+        </div>
+    </nav>
+
+    <section class="hero-gradient pt-40 pb-64 px-10 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 text-white">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                    Effortless Financial <br> At Your Fingertips
+                </h1>
+                <p class="text-emerald-100 text-lg mb-10 max-w-lg leading-relaxed">
+                    Intelligent tracking, expenses, and smart budgets. Start your journey to financial freedom today.
+                </p>
+                <div class="flex space-x-4">
+                    <button class="bg-emerald-500 hover:bg-emerald-400 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">
+                        Start for Free
+                    </button>
+                    <button class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-bold py-3 px-8 rounded-full transition">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+
+            <div class="md:w-1/2 mt-20 md:mt-0 relative">
+                <div class="relative bg-white/10 p-4 rounded-3xl backdrop-blur-sm border border-white/20 shadow-2xl">
+                    <img src="https://via.placeholder.com/600x400/064e3b/ffffff?text=Dashboard+Mockup" alt="App Mockup" class="rounded-2xl shadow-inner">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 -mt-32 relative z-10">
+        <div class="bg-white rounded-[2rem] shadow-2xl p-10 md:p-16">
+            <h2 class="text-2xl font-bold text-gray-800 mb-10">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
+                <div class="flex flex-col items-center text-center md:items-start md:text-left">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Smart Budgeting</h3>
+                    <p class="text-gray-500">View trends and categorize your spending.</p>
+                </div>
+
+                <div class="flex flex-col items-center text-center md:items-start md:text-left">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Expense Analytics</h3>
+                    <p class="text-gray-500">Detailed insights into your cash flow.</p>
+                </div>
+
+                <div class="flex flex-col items-center text-center md:items-start md:text-left">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Bill Reminders</h3>
+                    <p class="text-gray-500">Never miss a payment deadline again.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-gray-400 text-sm">
+        © 2026 SpendWise Inc. | <a href="#" class="hover:underline">Terms of Service</a>
+    </footer>
+
+</body>
+</html>
